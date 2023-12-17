@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from api.nail.user.schemas import UserSchema
+from api.no_one_way_to_learn.user.schemas import UserSchema
 
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
