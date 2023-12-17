@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    ports:
+      - "5050:8000"
+    volumes:
+      - .:/api
+  cache:
+    image: redis:7.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server
+    volumes:
+      - cache:/data
+  postgres:
+    image: postgres:15.4-alpine
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nailagenda
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  cache:
+    driver: local
+  postgres:
+    driver: local

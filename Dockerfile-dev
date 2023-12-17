@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+
+WORKDIR ./
+
+COPY ./requirements.txt .
+
+RUN pip install --upgrade pip && \
+pip install -r requirements.txt
+
+COPY . ../api
+
+CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--reload"]
