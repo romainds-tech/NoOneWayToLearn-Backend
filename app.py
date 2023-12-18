@@ -26,7 +26,7 @@ async def index(request: Request, schema: UserSchema):
 
 
 @app.get("/create_model", status_code=200)
-@limiter.limit("120/minute")
+@limiter.limit("1/minute")
 async def create_model(request: Request):
     create_model_ml()
     return {"message": "Model created successfully."}
