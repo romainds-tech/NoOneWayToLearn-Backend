@@ -38,11 +38,11 @@ def create_model_ml():
   model.summary()
 
   # Entraînement du modèle
-  model.fit(x_train, y_train, epochs=2000)
+  model.fit(x_train, y_train, epochs=8000)
 
   # Evaluation du modèle
   loss, accuracy = model.evaluate(x_train, y_train)
   print(f"Loss: {loss}, Accuracy: {accuracy}")
 
   # Enregistrement du modèle
-  model.save('/api/test_model.h5')  # sauvegarde le modèle en un fichier H5
+  model.save('/api/test_model.h5')

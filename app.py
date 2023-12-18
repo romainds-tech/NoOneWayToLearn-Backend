@@ -1,3 +1,5 @@
+import datetime
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from api.no_one_way_to_learn.user.schemas import UserSchema
@@ -26,10 +28,10 @@ async def index(request: Request, schema: UserSchema):
 
 
 @app.get("/create_model", status_code=200)
-@limiter.limit("1/minute")
+@limiter.limit("2/minute")
 async def create_model(request: Request):
     create_model_ml()
-    return {"message": "Model created successfully."}
+    return {"message": "Model created successfully at : " + str(datetime.datetime.now())}
 
 
 @app.get("/predict", status_code=200)
