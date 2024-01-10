@@ -20,4 +20,4 @@ docker restart noonewaytolearn-backend-web-1
 GET http://localhost:5050/create_model
 
 ### Predict endpoint
-GET http://localhost:5050/predict?age=31&cursus=2&side_project=3&open_source=4
+GET http://localhost:5050/predict?age=31&cursus=tech&side_project=sometimes&open_source=sometimes
